@@ -25,16 +25,18 @@ interparcel-api-client/
 │   ├── quote/
 │   │   ├── getQuote.ts           # Quote API logic
 │   │   ├── types.ts              # Quote request/response types
+│   │   ├── index.ts              # Index
 │   │   └── __tests__/            # Unit tests for quotes
 │   ├── shipment/
 │   │   ├── createShipment.ts     # Shipment creation logic
 │   │   ├── types.ts              # Shipment request/response types
+│   │   ├── index.ts              # Index
 │   │   └── __tests__/            # Unit tests for shipment
-│   ├── tracking/
-│   │   ├── trackShipment.ts      # Tracking endpoint logic
-│   │   ├── types.ts              # Tracking request/response types
-│   │   └── __tests__/            # Unit tests for tracking
-│   └── shared/                   # Shared utilities/types (if needed)
+│   └── tracking/
+│       ├── trackShipment.ts      # Tracking endpoint logic
+│       ├── types.ts              # Tracking request/response types
+│   │   ├── index.ts              # Index
+│       └── __tests__/            # Unit tests for tracking
 ├── dist/                         # Compiled output
 ├── test/                         # Global test setup/utils
 ├── .github/workflows/ci.yml     # GitHub Actions CI workflow
