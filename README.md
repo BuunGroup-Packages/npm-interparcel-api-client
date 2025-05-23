@@ -238,8 +238,8 @@ Please lint and format TypeScript code before submitting a PR.
 
 ## 👤 Authors
 
-Created by **Buun Group** 
-Lead Developer: **Sacha Roussakis-Notter**
+Created by [**Buun Group**](https://buungroup.com) <br>
+Lead Developer: [**Sacha Roussakis-Notter**](https://www.linkedin.com/in/sacha-roussakis-notter-b6903095/)
 
 ---
 
