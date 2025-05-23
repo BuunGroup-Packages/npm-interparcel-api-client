@@ -139,7 +139,7 @@ This project uses [semantic-release](https://semantic-release.gitbook.io/semanti
 - Complete the [PR checklist](./.github/workflows/PULL_REQUEST_TEMPLATE.md) to ensure your contribution is ready for review and release.
 
 ### Example commit messages
-- `feat: add createShipment method`
+- `feat: add createShipment method` 
 - `fix: correct quote API endpoint`
 - `chore: update dependencies`
 - `docs: improve README usage example`
