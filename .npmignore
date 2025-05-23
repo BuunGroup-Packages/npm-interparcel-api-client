@@ -1,0 +1,37 @@
+# Ignore node modules
+node_modules/
+
+# Ignore source TypeScript files
+src/
+
+# Ignore tests
+__tests__/
+tests/
+*.test.ts
+*.spec.ts
+
+# Ignore configs and environment files
+tsconfig.json
+jest.config.js
+*.env
+*.env.* 
+.npmignore
+.gitignore
+.prettierrc
+.eslintrc*
+.vscode/
+.idea/
+
+# Ignore coverage output
+coverage/
+
+# Ignore build scripts
+scripts/
+
+# Ignore logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Ignore GitHub Actions
+.github/
