@@ -2,6 +2,7 @@
   "name": "@buun_group/interparcel-api-sdk",
   "type": "module",
   "version": "1.0.0",
+  "private": false,
   "files": [
     "dist",
     "README.md",
