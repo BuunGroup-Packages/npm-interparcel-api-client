@@ -11,16 +11,18 @@
     "src/",
     "README.md"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "test": "jest",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
@@ -61,6 +63,7 @@
     "prettier": "^3.5.3",
     "semantic-release": "^24.2.4",
     "ts-jest": "^29.3.4",
+    "tsup": "^8.0.2",
     "typescript": "^5.8.3"
   },
   "release": {
