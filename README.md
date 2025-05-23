@@ -35,7 +35,7 @@ interparcel-api-client/
 │   └── tracking/
 │       ├── trackShipment.ts      # Tracking endpoint logic
 │       ├── types.ts              # Tracking request/response types
-│   │   ├── index.ts              # Index
+
 │       └── __tests__/            # Unit tests for tracking
 ├── dist/                         # Compiled output
 ├── test/                         # Global test setup/utils
@@ -202,4 +202,49 @@ This project includes a GitHub Actions workflow in `.github/workflows/ci.yml` th
 
 - Linting (`npm run lint`)
 - Build (`npm run build`)
-- Unit tests (`
+- Unit tests (`npm test`)
+- Security audit (`npm audit --omit dev`)
+
+All workflows run on PRs and pushes to `main`.
+
+
+---
+
+## 📚 Dependencies
+
+| Package         | Purpose                           |
+|-----------------|-----------------------------------|
+| axios           | HTTP client for API requests      |
+| typescript      | Type-safe development             |
+| jest            | Testing framework                 |
+| axios-mock-adapter | Mocking axios for unit tests  |
+| @types/node     | Node.js type definitions          |
+| ts-jest         | TypeScript support for Jest       |
+
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository  
+2. Create a branch (`git checkout -b feature/foo`)  
+3. Commit changes (`git commit -am 'Add foo feature'`)  
+4. Push to GitHub (`git push origin feature/foo`)  
+5. Create a Pull Request  
+
+Please lint and format TypeScript code before submitting a PR.
+
+---
+
+## 👤 Authors
+
+Created by **Buun Group** 
+Lead Developer: **Sacha Roussakis-Notter**
+
+---
+
+## ⚠️ Disclaimer
+
+This package is an **unofficial community-developed** client for the Interparcel API.  
+We are **not affiliated, associated, authorized, endorsed by, or in any way officially connected** with Interparcel.  
+All product and company names are trademarks™ or registered® trademarks of their respective holders.
