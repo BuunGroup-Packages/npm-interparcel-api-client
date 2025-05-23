@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.4.1...v1.5.0) (2025-05-23)
+
+
+### Features
+
+* uplift types, and documentaiton, added keywords for it being found on npm ([1efde07](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/commit/1efde07d17c47bc174e4d2e786ec4fc87e68df0a))
+
 ## [1.4.1](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.4.0...v1.4.1) (2025-05-23)
 
 
