@@ -44,6 +44,12 @@ This guide will help you set up your development environment, follow the project
 
 ---
 
+## 📚 Usage Documentation
+
+For detailed usage instructions and examples, see [docs/getting-started.md](./docs/getting-started.md).
+
+---
+
 ## ✨ Contribution Guidelines
 
 ### ✅ Before You Start
@@ -80,14 +86,17 @@ This guide will help you set up your development environment, follow the project
 
 ---
 
-## ✅ Commit Messages
+## 📝 Commit Message Linting
 
-Use [Conventional Commits](https://www.conventionalcommits.org/):
+All commit messages are automatically checked for [Conventional Commit](https://www.conventionalcommits.org/) compliance using Husky and commitlint. If your commit message does not follow the required format, the commit will be rejected.
 
+**Format examples:**
 - `feat: add createShipment method`
 - `fix: correct quote API endpoint`
 - `chore: update dependencies`
 - `docs: improve README usage example`
+
+This check runs automatically on every commit. For more details, see the [Conventional Commits documentation](https://www.conventionalcommits.org/).
 
 ---
 
@@ -108,6 +117,34 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
    - Passes all CI tests and checks.
    - Includes unit tests if adding/modifying functionality.
    - **Is linted and formatted using Prettier and ESLint.**
+
+---
+
+## 🚀 Automated Release & Publishing Workflow
+
+This project uses [semantic-release](https://semantic-release.gitbook.io/semantic-release/) for fully automated versioning, changelog, GitHub releases, and npm publishing. **You do not need to manually update the version, changelog, or publish to npm.**
+
+### How it works
+- On every push/merge to `main`:
+  1. CI runs and must pass.
+  2. semantic-release analyzes commit messages (using [Conventional Commits](https://www.conventionalcommits.org/)).
+  3. Determines the next [SemVer 2.0](https://semver.org/) version.
+  4. Updates `CHANGELOG.md` and `package.json`.
+  5. Creates a git tag and GitHub release with release notes.
+  6. Publishes the new version to npm automatically.
+
+### What you need to do
+- **Use Conventional Commits** for all PRs and merges (e.g., `feat: add X`, `fix: correct Y`).
+- **Do not manually update** the version, changelog, or publish to npm.
+- Complete the [PR checklist](./.github/workflows/PULL_REQUEST_TEMPLATE.md) to ensure your contribution is ready for review and release.
+
+### Example commit messages
+- `feat: add createShipment method`
+- `fix: correct quote API endpoint`
+- `chore: update dependencies`
+- `docs: improve README usage example`
+
+For more details, see the [semantic-release documentation](https://semantic-release.gitbook.io/semantic-release/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ---
 

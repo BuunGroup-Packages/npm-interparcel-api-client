@@ -54,6 +54,8 @@ interparcel-api-client/
 npm install
 ```
 
+> **See the full usage guide:** [docs/getting-started.md](./docs/getting-started.md)
+
 > **Optional:** You can use the included `Makefile` to run all checks and commands with simple `make` commands (requires GNU Make, standard on Linux/macOS, available for Windows via WSL or MinGW). For example:
 >
 > - `make install` — install dependencies
@@ -198,53 +200,4 @@ This project includes a GitHub Actions workflow in `.github/workflows/ci.yml` th
 
 - Linting (`npm run lint`)
 - Build (`npm run build`)
-- Unit tests (`npm test`)
-- Security audit (`npm audit --omit dev`)
-
-All workflows run on PRs and pushes to `main`.
-
----
-
-## 📚 Dependencies
-
-| Package         | Purpose                           |
-|-----------------|-----------------------------------|
-| axios           | HTTP client for API requests      |
-| typescript      | Type-safe development             |
-| jest            | Testing framework                 |
-| axios-mock-adapter | Mocking axios for unit tests  |
-| @types/node     | Node.js type definitions          |
-| ts-jest         | TypeScript support for Jest       |
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository  
-2. Create a branch (`git checkout -b feature/foo`)  
-3. Commit changes (`git commit -am 'Add foo feature'`)  
-4. Push to GitHub (`git push origin feature/foo`)  
-5. Create a Pull Request  
-
-Please lint and format TypeScript code before submitting a PR.
-
----
-
-## 👤 Authors
-
-Created by **Buun Group**  
-Lead Developer: **Sacha Roussakis-Notter**
-
----
-
-## ⚠️ Disclaimer
-
-This package is an **unofficial community-developed** client for the Interparcel API.  
-We are **not affiliated, associated, authorized, endorsed by, or in any way officially connected** with Interparcel.  
-All product and company names are trademarks™ or registered® trademarks of their respective holders.
-
----
-
-## 📄 License
-
-MIT © Buun Group
+- Unit tests (`

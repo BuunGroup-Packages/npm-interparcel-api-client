@@ -1,0 +1,39 @@
+{
+  "validate": true,
+  "reference": "ref-123",
+  "collection": {
+    "name": "Sender",
+    "email": "sender@example.com",
+    "phone": "123456789",
+    "company": "Sender Co",
+    "address": {
+      "street": "123 Sender St",
+      "city": "Sydney",
+      "postcode": "2000",
+      "country": "AU"
+    }
+  },
+  "delivery": {
+    "name": "Receiver",
+    "email": "receiver@example.com",
+    "phone": "987654321",
+    "company": "Receiver Co",
+    "address": {
+      "street": "456 Receiver Ave",
+      "city": "Melbourne",
+      "postcode": "3000",
+      "country": "AU"
+    }
+  },
+  "parcels": [
+    { "weight": 1, "length": 10, "width": 10, "height": 10, "contents": "Books", "value": 100 }
+  ],
+  "service": "express",
+  "pickup": {
+    "date": "2025-05-23",
+    "earliest": "09:00",
+    "latest": "17:00"
+  },
+  "transitCover": true,
+  "customs": {}
+} 

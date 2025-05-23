@@ -1,0 +1,7 @@
+{
+  "collection": { "city": "Sydney", "postcode": "2000", "country": "AU" },
+  "delivery": { "city": "Melbourne", "postcode": "3000", "country": "AU" },
+  "parcels": [
+    { "weight": 2, "length": 10, "width": 20, "height": 15 }
+  ]
+} 
