@@ -103,7 +103,7 @@ import {
   trackParcel,
   addShipment,
   QuoteRequest,
-} from 'interparcel-api-sdk';
+} from '@buungroup/interparcel-api-sdk';
 
 const apiKey = process.env.INTERPARCEL_API_KEY;
 

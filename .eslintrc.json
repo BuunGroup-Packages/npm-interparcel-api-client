@@ -10,6 +10,9 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
+  "env": {
+    "jest": true
+  },
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
