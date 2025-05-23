@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.1.0...v1.2.0) (2025-05-23)
+
+
+### Features
+
+* initial release ([a23e4c0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/commit/a23e4c06df230c42033d1e78153bf3244d0a8357))
+
 # [1.1.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.0.0...v1.1.0) (2025-05-23)
 
 
