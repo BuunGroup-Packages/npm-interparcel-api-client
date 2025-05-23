@@ -1,6 +1,6 @@
-# Contributing to `interparcel-api-sdk`
+# Contributing to `@buun_group/interparcel-api-sdk`
 
-Thank you for considering contributing to `interparcel-api-sdk`! 
+Thank you for considering contributing to `@buun_group/interparcel-api-sdk`! 
 
 This guide will help you set up your development environment, follow the project's standards, and make high-quality contributions.
 
@@ -152,4 +152,4 @@ For more details, see the [semantic-release documentation](https://semantic-rele
 
 By participating in this project, you agree to abide by our [Code of Conduct](https://opensource.guide/code-of-conduct/).
 
-Thank you for helping improve `interparcel-api-sdk`!
+Thank you for helping improve `@buun_group/interparcel-api-sdk`!

@@ -26,7 +26,18 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "interparcel",
+    "shipping",
+    "api",
+    "sdk",
+    "typescript",
+    "quotes",
+    "tracking",
+    "shipment",
+    "australia",
+    "logistics"
+  ],
   "author": "Sacha Roussakis-Notter",
   "license": "MIT",
   "description": "Interparcel API SDK for Node.js",

@@ -1,7 +1,2 @@
 export { addShipment } from './createShipment';
-export type {
-  ShipmentContact,
-  ShipmentParcel,
-  CreateShipmentRequest,
-  ShipmentResponse,
-} from './types';
+export type { ShipmentAddress, ShipmentParcel, ShipmentRequest, ShipmentResponse } from './types';

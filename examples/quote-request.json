@@ -3,5 +3,9 @@
   "delivery": { "city": "Melbourne", "postcode": "3000", "country": "AU" },
   "parcels": [
     { "weight": 2, "length": 10, "width": 20, "height": 15 }
-  ]
+  ],
+  "filter": {
+    "serviceLevel": ["express"],
+    "pickupType": ["collection"]
+  }
 } 

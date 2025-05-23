@@ -14,8 +14,20 @@ export async function getQuote(apiKey: string, data: QuoteRequest): Promise<Quot
         'X-Interparcel-API-Version': API_VERSION,
       },
     });
+
+    if ('errorMessage' in response.data) {
+      throw new Error(
+        `Quote API error: ${response.data.errorMessage} (${response.data.errorCode})`,
+      );
+    }
+
     return response.data;
   } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.data?.errorMessage) {
+      throw new Error(
+        `Quote API error: ${error.response.data.errorMessage} (${error.response.data.errorCode})`,
+      );
+    }
     throw new Error(`Quote API error: ${error}`);
   }
 }

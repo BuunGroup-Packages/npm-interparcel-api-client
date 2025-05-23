@@ -7,12 +7,12 @@ Supports quoting, shipment creation, and parcel tracking.
 
 ## ✨ Features
 
-- 📦 Get shipping quotes  
-- 🚚 Create shipments  
-- 📍 Track parcels  
-- 🔐 Built-in API key authentication  
-- 🧪 Unit tests with Jest  
-- 💡 Written in TypeScript with full type safety  
+- 📦 Get shipping quotes (API v3)
+- 🚚 Create shipments (API v3)
+- 📍 Track parcels (API v1)
+- 🔐 Built-in API key authentication
+- 🧪 Unit tests with Jest
+- 💡 Written in TypeScript with full type safety
 
 ---
 
@@ -23,19 +23,18 @@ interparcel-api-client/
 ├── src/
 │   ├── index.ts                  # Entry point exports all modules
 │   ├── quote/
-│   │   ├── getQuote.ts           # Quote API logic
+│   │   ├── getQuote.ts           # Quote API logic (v3)
 │   │   ├── types.ts              # Quote request/response types
 │   │   ├── index.ts              # Index
 │   │   └── __tests__/            # Unit tests for quotes
 │   ├── shipment/
-│   │   ├── createShipment.ts     # Shipment creation logic
+│   │   ├── createShipment.ts     # Shipment creation logic (v3)
 │   │   ├── types.ts              # Shipment request/response types
 │   │   ├── index.ts              # Index
 │   │   └── __tests__/            # Unit tests for shipment
 │   └── tracking/
-│       ├── trackShipment.ts      # Tracking endpoint logic
+│       ├── trackShipment.ts      # Tracking endpoint logic (v1)
 │       ├── types.ts              # Tracking request/response types
-
 │       └── __tests__/            # Unit tests for tracking
 ├── dist/                         # Compiled output
 ├── test/                         # Global test setup/utils
@@ -53,7 +52,7 @@ interparcel-api-client/
 ## 🚀 Installation
 
 ```
-npm install
+npm install @buun_group/interparcel-api-sdk
 ```
 
 > **See the full usage guide:** [docs/getting-started.md](./docs/getting-started.md)

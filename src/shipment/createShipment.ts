@@ -9,7 +9,7 @@ export async function addShipment(
   data: ShipmentRequest,
 ): Promise<ShipmentResponse> {
   try {
-    const response = await axios.post(API_URL, data, {
+    const response = await axios.post<ShipmentResponse>(API_URL, data, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -17,8 +17,20 @@ export async function addShipment(
         'X-Interparcel-API-Version': API_VERSION,
       },
     });
+
+    if ('errorMessage' in response.data) {
+      throw new Error(
+        `Shipment API error: ${response.data.errorMessage} (${response.data.errorCode})`,
+      );
+    }
+
     return response.data;
   } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.data?.errorMessage) {
+      throw new Error(
+        `Shipment API error: ${error.response.data.errorMessage} (${error.response.data.errorCode})`,
+      );
+    }
     throw new Error(`Shipment API error: ${error}`);
   }
 }

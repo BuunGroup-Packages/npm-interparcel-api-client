@@ -1,14 +1,11 @@
 import axios from 'axios';
-import { TrackingResponse } from './types';
+import { TrackingResult } from './types';
 
 const API_VERSION = '1';
 
-export async function trackParcel(
-  apiKey: string,
-  trackingNumber: string,
-): Promise<TrackingResponse> {
+export async function trackParcel(apiKey: string, trackingNumber: string): Promise<TrackingResult> {
   try {
-    const response = await axios.get<TrackingResponse>(
+    const response = await axios.get<TrackingResult>(
       `https://api.interparcel.com/tracking/${trackingNumber}`,
       {
         headers: {
@@ -19,8 +16,20 @@ export async function trackParcel(
         },
       },
     );
+
+    if ('errorMessage' in response.data) {
+      throw new Error(
+        `Tracking API error: ${response.data.errorMessage} (${response.data.errorCode})`,
+      );
+    }
+
     return response.data;
   } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.data?.errorMessage) {
+      throw new Error(
+        `Tracking API error: ${error.response.data.errorMessage} (${error.response.data.errorCode})`,
+      );
+    }
     throw new Error(`Tracking API error: ${error}`);
   }
 }

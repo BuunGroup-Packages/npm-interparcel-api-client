@@ -24,13 +24,15 @@ Check the relevant option:
 - [ ] Not yet
 - [ ] Not needed
 
-## 💡 Checklist
+## �� Checklist
 
-- [ ] I’ve added or updated tests.
-- [ ] I’ve built the project successfully (`npm run build`).
-- [ ] I’ve linted my code (`npm run lint`).
-- [ ] I’ve formatted my code.
-- [ ] I’ve updated documentation (if needed).
+- [ ] I've added or updated tests.
+- [ ] I've built the project successfully (`npm run build`).
+- [ ] I've linted my code (`npm run lint`).
+- [ ] I've formatted my code.
+- [ ] I've updated documentation (if needed).
+- [ ] I've updated type definitions (if needed).
+- [ ] I've updated example files (if needed).
 
 ## 📸 Screenshots (optional)
 
@@ -38,4 +40,4 @@ Check the relevant option:
 
 ## 🙏 Thank you
 
-Thanks for contributing to `interparcel-api-sdk`! Your effort is appreciated.
+Thanks for contributing to `@buun_group/interparcel-api-sdk`! Your effort is appreciated.

@@ -34,7 +34,7 @@ curl -X POST http://localhost:3000/api/track \
 ## 🚀 Installation
 
 ```sh
-npm install interparcel-api-sdk
+npm install @buun_group/interparcel-api-sdk
 ```
 
 ---
@@ -47,12 +47,17 @@ Set your Interparcel API key as an environment variable:
 INTERPARCEL_API_KEY=your_api_key_here
 ```
 
+> **Note:** Each API endpoint uses a specific version:
+> - Quote API: Version 3
+> - Shipment API: Version 3
+> - Tracking API: Version 1
+
 ---
 
 ## 🟦 Usage in Node.js
 
 ```js
-import { getQuote, addShipment, trackParcel } from 'interparcel-api-sdk';
+import { getQuote, addShipment, trackParcel } from '@buun_group/interparcel-api-sdk';
 
 const apiKey = process.env.INTERPARCEL_API_KEY;
 
@@ -109,6 +114,7 @@ const quote = await response.json();
 | collection | AddressDetails  | Yes      | Pickup address info   |
 | delivery   | AddressDetails  | Yes      | Delivery address info |
 | parcels    | ParcelDetails[] | Yes      | Array of parcels      |
+| filter     | FilterOptions   | No       | Filter service options|
 
 **AddressDetails:**
 
@@ -126,8 +132,15 @@ const quote = await response.json();
 | length   | number  | Yes      | Length in cm        |
 | width    | number  | Yes      | Width in cm         |
 | height   | number  | Yes      | Height in cm        |
-| contents | string  | No       | Description         |
-| value    | number  | No       | Value in AUD        |
+
+**FilterOptions:**
+
+| Field        | Type     | Required | Description         |
+|-------------|----------|----------|---------------------|
+| serviceLevel| string[] | No       | Service levels ('standard', 'express', 'timed', 'sameday', 'pallet') |
+| carriers    | string[] | No       | Carrier codes       |
+| services    | string[] | No       | Service codes       |
+| pickupType  | string[] | No       | Pickup types ('collection', 'dropoff') |
 
 <details>
 <summary><strong>Example: getQuote request body</strong></summary>
@@ -136,7 +149,11 @@ const quote = await response.json();
 {
   "collection": { "city": "Sydney", "postcode": "2000", "country": "AU" },
   "delivery": { "city": "Melbourne", "postcode": "3000", "country": "AU" },
-  "parcels": [{ "weight": 2, "length": 10, "width": 20, "height": 15 }]
+  "parcels": [{ "weight": 2, "length": 10, "width": 20, "height": 15 }],
+  "filter": {
+    "serviceLevel": ["express"],
+    "pickupType": ["collection"]
+  }
 }
 ```
 </details>
@@ -148,35 +165,63 @@ const quote = await response.json();
 | Field      | Type             | Required | Description                |
 |------------|------------------|----------|----------------------------|
 | validate   | boolean          | Yes      | Validate before creating   |
-| reference  | string           | Yes      | Reference for shipment     |
-| collection | ShipmentContact  | Yes      | Sender info                |
-| delivery   | ShipmentContact  | Yes      | Receiver info              |
+| reference  | string          | Yes      | Reference for shipment     |
+| collection | ShipmentAddress  | Yes      | Sender info                |
+| delivery   | ShipmentAddress  | Yes      | Receiver info              |
 | parcels    | ShipmentParcel[] | Yes      | Array of parcels           |
-| service    | string           | No       | Service code               |
+| contents   | string          | No       | Description of contents    |
+| value      | number          | No       | Value in AUD               |
+| service    | string          | No       | Service code               |
 | pickup     | PickupDetails    | No       | Pickup timing              |
 | transitCover| boolean         | No       | Transit cover/insurance    |
-| customs    | object           | No       | Customs info (if needed)   |
+| customs    | CustomsInfo      | No       | Customs info (if needed)   |
 
-**ShipmentContact:**
+**ShipmentAddress:**
 
-| Field    | Type   | Required | Description         |
-|----------|--------|----------|---------------------|
-| name     | string | Yes      | Name                |
-| email    | string | Yes      | Email address       |
-| phone    | string | Yes      | Phone number        |
-| company  | string | No       | Company name        |
-| address  | object | Yes      | AddressDetails      |
+| Field     | Type   | Required | Description         |
+|-----------|--------|----------|---------------------|
+| name      | string | Yes      | Name                |
+| company   | string | No       | Company name        |
+| add1      | string | Yes      | Address line 1      |
+| add2      | string | No       | Address line 2      |
+| city      | string | Yes      | City                |
+| state     | string | No       | State/Province      |
+| postcode  | string | Yes      | Postal code         |
+| country   | string | Yes      | Country code        |
+| telephone | string | Yes      | Phone number        |
+| email     | string | Yes      | Email address       |
 
 **ShipmentParcel:**
 
 | Field    | Type    | Required | Description         |
 |----------|---------|----------|---------------------|
-| weight   | number  | Yes      | Weight in kg        |
-| length   | number  | Yes      | Length in cm        |
-| width    | number  | Yes      | Width in cm         |
-| height   | number  | Yes      | Height in cm        |
-| contents | string  | Yes      | Description         |
-| value    | number  | No       | Value in AUD        |
+| weight   | number  | Yes      | Weight in kg (decimal) |
+| length   | number  | Yes      | Length in cm (integer) |
+| width    | number  | Yes      | Width in cm (integer)  |
+| height   | number  | Yes      | Height in cm (integer) |
+
+**CustomsInfo:**
+
+| Field              | Type         | Required | Description         |
+|-------------------|--------------|----------|---------------------|
+| taxStatus         | number       | Yes      | Tax status code     |
+| reasonForExport   | number       | Yes      | Export reason code  |
+| senderEoriNumber  | string       | No       | Sender EORI number  |
+| receiverEoriNumber| string       | No       | Receiver EORI number|
+| iossNumber        | string       | No       | IOSS number         |
+| items             | CustomsItem[] | Yes      | Customs items       |
+
+**CustomsItem:**
+
+| Field       | Type   | Required | Description         |
+|------------|--------|----------|---------------------|
+| parcel     | number | Yes      | Parcel index        |
+| description| string | Yes      | Item description    |
+| hsCode     | string | Yes      | HS tariff code      |
+| quantity   | number | Yes      | Item quantity       |
+| value      | string | Yes      | Item value          |
+| currency   | string | Yes      | Currency code       |
+| country    | string | Yes      | Country of origin   |
 
 **PickupDetails:**
 
@@ -195,31 +240,29 @@ const quote = await response.json();
   "reference": "ref-123",
   "collection": {
     "name": "Sender",
-    "email": "sender@example.com",
-    "phone": "123456789",
     "company": "Sender Co",
-    "address": {
-      "street": "123 Sender St",
-      "city": "Sydney",
-      "postcode": "2000",
-      "country": "AU"
-    }
+    "add1": "123 Sender St",
+    "city": "Sydney",
+    "postcode": "2000",
+    "country": "AU",
+    "telephone": "123456789",
+    "email": "sender@example.com"
   },
   "delivery": {
     "name": "Receiver",
-    "email": "receiver@example.com",
-    "phone": "987654321",
     "company": "Receiver Co",
-    "address": {
-      "street": "456 Receiver Ave",
-      "city": "Melbourne",
-      "postcode": "3000",
-      "country": "AU"
-    }
+    "add1": "456 Receiver Ave",
+    "city": "Melbourne",
+    "postcode": "3000",
+    "country": "AU",
+    "telephone": "987654321",
+    "email": "receiver@example.com"
   },
   "parcels": [
-    { "weight": 1, "length": 10, "width": 10, "height": 10, "contents": "Books", "value": 100 }
+    { "weight": 1, "length": 10, "width": 10, "height": 10 }
   ],
+  "contents": "Books",
+  "value": 100,
   "service": "express",
   "pickup": {
     "date": "2025-05-23",
@@ -227,7 +270,21 @@ const quote = await response.json();
     "latest": "17:00"
   },
   "transitCover": true,
-  "customs": {}
+  "customs": {
+    "taxStatus": 1,
+    "reasonForExport": 1,
+    "items": [
+      {
+        "parcel": 1,
+        "description": "Books",
+        "hsCode": "4901.99",
+        "quantity": 1,
+        "value": "100",
+        "currency": "AUD",
+        "country": "AU"
+      }
+    ]
+  }
 }
 ```
 </details>
@@ -239,6 +296,19 @@ const quote = await response.json();
 | Field          | Type    | Required | Description                |
 |----------------|---------|----------|----------------------------|
 | trackingNumber | string  | Yes      | Tracking number to query   |
+
+**Response includes:**
+
+| Field         | Type           | Description                |
+|--------------|----------------|----------------------------|
+| status       | number         | Status code (0 = success)  |
+| service      | string         | Service name               |
+| currentStatus| 'B'/'T'/'O'/'D'| B=Booked, T=Transit, O=Out for delivery, D=Delivered |
+| dateSent     | string         | Date sent                  |
+| dateDelivered| string         | Date delivered (if done)   |
+| timeDelivered| string         | Time delivered (if done)   |
+| signedForName| string         | Signature name (if done)   |
+| events       | TrackingEvent[]| Array of tracking events   |
 
 <details>
 <summary><strong>Example: trackParcel usage</strong></summary>
