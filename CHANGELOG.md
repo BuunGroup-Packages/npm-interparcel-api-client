@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.4.0...v1.4.1) (2025-05-23)
+
+
+### Bug Fixes
+
+* ensure dist is built before publishing ([1e351bc](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/commit/1e351bc3d0dcaa5ce821465b9b957eab6f54764f))
+
 # [1.4.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.3.0...v1.4.0) (2025-05-23)
 
 
