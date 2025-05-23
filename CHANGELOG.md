@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.3.0...v1.4.0) (2025-05-23)
+
+
+### Features
+
+* added exports... for bundler useage: ([4e4c918](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/commit/4e4c91819c6434c05c59b2f723d9b88e6a79ad2d))
+
 # [1.3.0](https://github.com/BuunGroup-Packages/npm-interparcel-api-client/compare/v1.2.0...v1.3.0) (2025-05-23)
 
 
