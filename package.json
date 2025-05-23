@@ -23,7 +23,8 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "Sacha Roussakis-Notter",
